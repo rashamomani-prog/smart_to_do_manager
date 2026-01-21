@@ -24,8 +24,7 @@ class TaskTile extends StatelessWidget {
       title: Text(
         task.title,
         style: TextStyle(
-          decoration:
-          task.isCompleted ? TextDecoration.lineThrough : null,
+          decoration: task.isCompleted ? TextDecoration.lineThrough : null,
         ),
       ),
       subtitle: PriorityChip(priority: task.priority),

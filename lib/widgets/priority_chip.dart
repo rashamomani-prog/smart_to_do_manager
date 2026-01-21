@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import '../models/task_model.dart';
 import '../utils/constants.dart';
 
 class PriorityChip extends StatelessWidget {
-  final Priority priority;
+  final String priority;
 
   const PriorityChip({super.key, required this.priority});
 
@@ -12,19 +11,21 @@ class PriorityChip extends StatelessWidget {
     Color color;
 
     switch (priority) {
-      case Priority.low:
+      case 'Low':
         color = AppColors.low;
         break;
-      case Priority.medium:
+      case 'Medium':
         color = AppColors.medium;
         break;
-      case Priority.high:
+      case 'High':
         color = AppColors.high;
         break;
+      default:
+        color = Colors.grey;
     }
 
     return Chip(
-      label: Text(priority.name),
+      label: Text(priority),
       backgroundColor: color.withOpacity(0.2),
       labelStyle: TextStyle(color: color),
     );

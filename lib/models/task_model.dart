@@ -1,34 +1,13 @@
-void main() {
-  Task task1 = Task(
-    title: 'Finish homework',
-    description: 'Smart To-Do Manager assignment',
-    priority: Priority.high,
-    dueDate: DateTime.now(),
-  );
-
-  Task task2 = Task(
-    title: 'Clean room',
-    priority: Priority.low,
-    dueDate: DateTime.now(),
-  );
-
-  Task task3 = Task(
-    title: 'Buy groceries',
-    priority: Priority.medium,
-    dueDate: DateTime.now(),
-  );
-
-  List<Task> tasks = [task1, task2, task3];
-}
-enum Priority { low, medium, high }
 class Task {
+  int? id;
   String title;
   String? description;
-  Priority priority;
-  DateTime dueDate;
+  String priority; // Low / Medium / High
+  String dueDate;
   bool isCompleted;
 
   Task({
+    this.id,
     required this.title,
     this.description,
     required this.priority,
@@ -38,21 +17,23 @@ class Task {
 
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'title': title,
       'description': description,
-      'priority': priority.name,
-      'dueDate': dueDate.toIso8601String(),
-      'isCompleted': isCompleted,
+      'priority': priority,
+      'dueDate': dueDate,
+      'isCompleted': isCompleted ? 1 : 0,
     };
   }
 
   factory Task.fromMap(Map<String, dynamic> map) {
     return Task(
+      id: map['id'],
       title: map['title'],
       description: map['description'],
-      priority: Priority.values.byName(map['priority']),
-      dueDate: DateTime.parse(map['dueDate']),
-      isCompleted: map['isCompleted'],
+      priority: map['priority'],
+      dueDate: map['dueDate'],
+      isCompleted: map['isCompleted'] == 1,
     );
   }
 }
