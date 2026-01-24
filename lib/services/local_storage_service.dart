@@ -13,7 +13,6 @@ class LocalStorageService {
 
   Future<Database> _initDB() async {
     final path = join(await getDatabasesPath(), 'tasks.db');
-
     return await openDatabase(
       path,
       version: 1,
@@ -55,10 +54,6 @@ class LocalStorageService {
 
   Future<void> deleteTask(int id) async {
     final db = await database;
-    await db.delete(
-      'tasks',
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    await db.delete('tasks', where: 'id = ?', whereArgs: [id]);
   }
 }
