@@ -4,6 +4,8 @@ import '../services/local_storage_service.dart';
 import '../widgets/task_tile.dart';
 import 'add_edit_task_screen.dart';
 import '../utils/priority_levels.dart';
+// import '../widgets/app_logo.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -24,7 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void loadTasks() async {
     tasks = await db.getTasks();
-
     final priorityMap = {'High': 3, 'Medium': 2, 'Low': 1};
     tasks.sort((a, b) => priorityMap[b.priority]!.compareTo(priorityMap[a.priority]!));
 
@@ -39,11 +40,29 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFFFEBEE),
       appBar: AppBar(
-        title: const Text('Smart To-Do Manager'),
+        title: const Text('Rasha Do'),
         backgroundColor: const Color(0xFFE91E63),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.more_vert),
+            onPressed: () {
+              showAboutDialog(
+                context: context,
+                applicationName: 'Rasha Do',
+                applicationVersion: '1.0.0',
+                children: const [
+                  Text('The app was created by Rasha to make organizing daily tasks easier.'),
+                ],
+              );
+            },
+          ),
+        ],
       ),
       body: Column(
         children: [
+          // const SizedBox(height: 20),
+          // const AppLogo(),
+          // const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Row(
@@ -70,31 +89,17 @@ class _HomeScreenState extends State<HomeScreen> {
               itemCount: tasks.length,
               itemBuilder: (context, index) {
                 final task = tasks[index];
-                return GestureDetector(
-                  onTap: () async {
-                    final updatedTask = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => AddEditTaskScreen(task: task),
-                      ),
-                    );
-                    if (updatedTask != null) {
-                      await db.updateTask(updatedTask);
-                      loadTasks();
-                    }
+                return TaskTile(
+                  task: task,
+                  onDelete: () async {
+                    await db.deleteTask(task.id!);
+                    loadTasks();
                   },
-                  child: TaskTile(
-                    task: task,
-                    onDelete: () async {
-                      await db.deleteTask(task.id!);
-                      loadTasks();
-                    },
-                    onChanged: (value) async {
-                      task.isCompleted = value!;
-                      await db.updateTask(task);
-                      loadTasks();
-                    },
-                  ),
+                  onChanged: (value) async {
+                    task.isCompleted = value!;
+                    await db.updateTask(task);
+                    loadTasks();
+                  },
                 );
               },
             ),
@@ -114,8 +119,9 @@ class _HomeScreenState extends State<HomeScreen> {
             loadTasks();
           }
         },
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.add, color: Colors.white),
       ),
+
     );
   }
 }

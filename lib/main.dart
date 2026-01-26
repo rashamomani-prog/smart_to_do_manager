@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Smart To-Do Manager',
+      title: 'Rasha_Do',
       theme: ThemeData(
         primarySwatch: Colors.pink,
         scaffoldBackgroundColor: Colors.pink[50],

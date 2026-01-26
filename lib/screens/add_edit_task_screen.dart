@@ -58,6 +58,8 @@ class _AddEditTaskScreenState extends State<AddEditTaskScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFFEBEE),
+
       appBar:
       AppBar(title: Text(widget.task == null ? 'Add Task' : 'Edit Task')),
       body: Padding(
@@ -122,7 +124,9 @@ class _AddEditTaskScreenState extends State<AddEditTaskScreen> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFFE91E63),
                 minimumSize: const Size(double.infinity, 48),
+                  foregroundColor: Colors.white,
               ),
+
               child: const Text('Save Task', style: TextStyle(fontSize: 16)),
             ),
           ],

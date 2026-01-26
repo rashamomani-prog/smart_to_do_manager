@@ -17,20 +17,20 @@
 //       'high': 'High',
 //     },
 //     'ar': {
-//       'appTitle': 'مدير المهام الذكي',
-//       'addTask': 'إضافة مهمة',
-//       'editTask': 'تعديل مهمة',
-//       'title': 'العنوان',
-//       'description': 'الوصف',
-//       'priority': 'الأولوية',
-//       'dueDate': 'تاريخ الاستحقاق',
-//       'save': 'حفظ المهمة',
-//       'completed': 'مكتملة',
-//       'pending': 'قيد التنفيذ',
-//       'noTasks': 'لا توجد مهام بعد',
-//       'low': 'منخفضة',
-//       'medium': 'متوسطة',
-//       'high': 'عالية',
+//       'appTitle':
+//       'addTask':
+//       'editTask':
+//       'title':
+//       'description':
+//       'priority':
+//       'dueDate':
+//       'save':
+//       'completed':
+//       'pending':
+//       'noTasks':
+//       'low':
+//       'medium':
+//       'high':
 //     }
 //   };
 //
