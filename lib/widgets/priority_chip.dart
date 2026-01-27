@@ -5,24 +5,15 @@ class PriorityChip extends StatelessWidget {
   final String priority;
 
   const PriorityChip({super.key, required this.priority});
-
   @override
   Widget build(BuildContext context) {
-    Color color;
+    const priorityColors = {
+      'Low': AppColors.low,
+      'Medium': AppColors.medium,
+      'High': AppColors.high,
+    };
+    final color = priorityColors[priority] ?? Colors.grey;
 
-    switch (priority) {
-      case 'Low':
-        color = AppColors.low;
-        break;
-      case 'Medium':
-        color = AppColors.medium;
-        break;
-      case 'High':
-        color = AppColors.high;
-        break;
-      default:
-        color = Colors.grey;
-    }
 
     return Chip(
       label: Text(priority),

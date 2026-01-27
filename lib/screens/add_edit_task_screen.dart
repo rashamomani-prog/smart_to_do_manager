@@ -100,7 +100,9 @@ class _AddEditTaskScreenState extends State<AddEditTaskScreen> {
                   onPressed: pickDate,
                   child: Text(
                     '${selectedDate.year}-${selectedDate.month.toString().padLeft(2, '0')}-${selectedDate.day.toString().padLeft(2, '0')}',
-                    style: const TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16,
+                        color: Colors.black),
+
                   ),
                 ),
               ],
