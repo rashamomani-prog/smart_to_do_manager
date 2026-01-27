@@ -1,16 +1,33 @@
-# smart_to_do
+# Rasha_Do
 
-A new Flutter project.
+Rasha_Do is a simple task manager app built with Flutter.
 
-## Getting Started
+## Features
+- Add, edit, delete tasks
+- Set task priority (Low, Medium, High)
+- Set due date for tasks
+- Show completed and pending tasks
 
-This project is a starting point for a Flutter application.
+## How to Run
+1. Clone the project
+2. Run `flutter pub get`
+3. Run `flutter run`
 
-A few resources to get you started if this is your first Flutter project:
+## Project Structure
+- lib/models/
+- lib/services/
+- lib/screens/
+- lib/widgets/
+- lib/utils/
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Contributors
+- Rasha Momani
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## License
+MIT License © 2026
+## Screenshots
+![Screenshot1](assets/images/screenshots/Screenshot1.png)
+![Screenshot2](assets/images/screenshots/Screenshot2.png)
+![Screenshot3](assets/images/screenshots/Screenshot3.png)
+![Screenshot4](assets/images/screenshots/Screenshot4.png)
+![Screenshot5](assets/images/screenshots/Screenshot5.png)
